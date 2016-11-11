@@ -1,7 +1,3 @@
-<?php
-include 'MyCurlFacebook.php';
-$MCF = new MyCurlFacebook();
-?>
 <!DOCTYPE html>
 <html>
 
@@ -93,11 +89,9 @@ $MCF = new MyCurlFacebook();
   <div class="header-div">
     <div class="profileandlikes-div">
       <img src="assets/layer.png" class="ppcover-div pp-div">
-      <img src="
-<?php 
-        echo $MCF->generateURL("1597591840496775/picture","width=100");
-      ?>" class="pp-div">
+      <img src="assets/12804717_1685402248382400_2923957636787252110_n.png" class="pp-div">
       <a class="twitter-follow">
+
         Follower
 
       </a>
