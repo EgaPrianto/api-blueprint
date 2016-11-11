@@ -102,6 +102,9 @@ $MCF = new MyCurlFacebook();
 
       </a>
       <a class="facebook-like">
+      <?php 
+        echo $MCF->get("1597591840496775","fields=fan_count")->fan_count;
+      ?>
 
         Likes 
 
