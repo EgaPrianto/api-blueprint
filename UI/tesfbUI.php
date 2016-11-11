@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>LBW-dapet-A</title>
+  <title>tesanjing</title>
   <meta name="generator" content="Google Web Designer 1.6.4.1010">
   <style type="text/css" id="gwd-text-style">
     p {
@@ -30,7 +30,7 @@
       transform-style: preserve-3d;
       background-color: rgb(221, 221, 221);
     }
-    .pp-div {
+    .gwd-img-15d6 {
       width: 100px;
       height: 100px;
       display: inline-block;
@@ -54,14 +54,15 @@
       display: inline-block;
       top: 55px;
     }
-    .ppcover-div {
+    .gwd-img-2yjn {
       position: fixed;
+    }
+    .gwd-a-1ba4 {
+      display: inline-block;
     }
     .profileandlikes-div {
       display: inline-block;
       width: 100%;
-      left: -684px;
-      top: 3296px;
     }
     .twitter-follow {
       font-family: 'Arial Black';
@@ -88,8 +89,8 @@
 <body>
   <div class="header-div">
     <div class="profileandlikes-div">
-      <img src="assets/layer.png" class="ppcover-div pp-div">
-      <img src="assets/12804717_1685402248382400_2923957636787252110_n.png" class="pp-div">
+      <img src="assets/layer.png" class="gwd-img-15d6 gwd-img-2yjn">
+      <img src="assets/12804717_1685402248382400_2923957636787252110_n.png" class="gwd-img-15d6">
       <a class="twitter-follow">
 
         Follower
@@ -101,7 +102,7 @@
 
       </a> 
     </div>
-    <h1 class="profilename-div">
+    <h1 class="gwd-gen-hp7ggwdanimation profilename-div">
 
      Adelia Maghfirare
 

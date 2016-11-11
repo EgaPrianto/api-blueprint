@@ -1,8 +1,7 @@
 <?php
 include 'MyCurlFacebook.php';
 
-$MCF = new MyCurlFacebook('189062984870016|7MBHU8Zl7IIEaahMbN-VZZxNrpM');
-
+$MCF = new MyCurlFacebook();
 echo $MCF->get("1597591840496775","fields=id,name").'<br>';
 echo $MCF->get("1597591840496775/likes","fields=id,name&amp;limit=1").'<br>Likes<br>';
 echo $MCF->get("1597591840496775","fields=fan_count").'<br>';

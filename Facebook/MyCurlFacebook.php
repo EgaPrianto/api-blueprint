@@ -10,8 +10,16 @@ class MyCurlFacebook {
     private $access_token = 'access_token=';
     private $curl;
 
-    public function __construct($access_token){
-        $this->access_token = $this->access_token.$access_token;
+    public function __construct(){
+        $this->curl = curl_init();
+        $execQuery = 'https://graph.facebook.com/v2.8/oauth/access_token?client_id=189062984870016&client_secret=46aa26be20511e7e76179da35790b2fe&grant_type=client_credentials';
+        curl_setopt($this->curl, CURLOPT_URL, $execQuery);
+        curl_setopt($this->curl, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($this->curl, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($this->curl);
+        curl_close($this->curl);
+        $obj = json_decode($response);
+        $this->access_token = $this->access_token.$obj->{'access_token'};
     }
 
 
