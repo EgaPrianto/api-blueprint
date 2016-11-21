@@ -215,15 +215,6 @@ $MCF = new MyCurlFacebook();
   </div>
   <div class = "facebook-feed col-md-6 col-sm-6">
     <h2 id="facebook-banner">facebook</h2>
-    <div class = 'facebook-post col-md-11 col-sm-11 pull-right'>
-      <div class = 'facebook-post-message col-md-12 col-sm-12'>
-
-      </div>
-      <img src = 'assets/picture/tes.jpg' class = 'col-md-12 col-sm-12'>
-      <div class = 'facebook-post-time pull-right col-md-6 col-sm-6'>
-
-      </div>
-    </div>
     <?php
        $post = $MCF->get("1597591840496775/feed","")->data;
        for($i = 0 ; $i<sizeof($post);$i++){
