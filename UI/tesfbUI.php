@@ -38,12 +38,6 @@ $MCF = new MyCurlFacebook();
         text-decoration: none;
     }
 
-    a:hover {
-      color: default;
-
-        text-decoration: none;
-    }
-
     a:active {
         text-decoration: none;
     }
@@ -56,7 +50,6 @@ $MCF = new MyCurlFacebook();
     body {
       transform: perspective(1400px) matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
       transform-style: preserve-3d;
-      background-color: rgb(221, 221, 221);
     }
     .pp-div {
       width: 100px;
@@ -95,6 +88,10 @@ $MCF = new MyCurlFacebook();
       border-radius: 5px;
       background-color: #55ACEE;
     }
+    .twitter-follow:hover {
+      color: white;
+      text-decoration: none;
+    }
     .facebook-like {
       font-family: 'Arial Black';
       color: white;
@@ -103,8 +100,16 @@ $MCF = new MyCurlFacebook();
       border-radius: 5px;
       background-color: rgb(59, 89, 152);
     }
+    .facebook-like:hover {
+      color: white;
+      text-decoration: none;
+    }
     .tagppl-div {
       color: rgb(128, 128, 128);
+    }
+    .tagppl-div:hover {
+      color: rgb(128, 128, 128);
+      text-decoration: none;
     }
     .twitter-feed{    
       padding-left: 5%;  
@@ -163,6 +168,10 @@ $MCF = new MyCurlFacebook();
       text-align: right;
       margin-top: 3%;
     }
+    .facebook-post-like{
+      margin-top: 3%;
+      color: #999999;
+    }
   </style>
 </head>
 
@@ -193,7 +202,7 @@ $MCF = new MyCurlFacebook();
       ?>
 
         Likes 
-
+        <img src="assets/picture/like_icon.png" style="height: 25px">
       </a> 
     </div>
     <h1 class="profilename-div">
@@ -216,29 +225,36 @@ $MCF = new MyCurlFacebook();
   <div class = "facebook-feed col-md-6 col-sm-6">
     <h2 id="facebook-banner">facebook</h2>
     <?php
-       $post = $MCF->get("1597591840496775/feed","")->data;
+       $post = $MCF->get("1597591840496775/feed","fields=likes.limit(0).summary(true),message,story,created_time")->data;
        for($i = 0 ; $i<sizeof($post);$i++){
           $curPost =  $post[$i];
           echo "<div class = 'facebook-post col-md-11 col-sm-11 pull-right'>";
-          echo "<div class = 'facebook-post-message col-md-12 col-sm-12'>";
           if(property_exists($curPost, 'message')){
+            echo "<div class = 'facebook-post-message col-md-12 col-sm-12'>";
             echo $curPost->message.'<br>';
+            echo "</div>";
           }else if(property_exists($curPost, 'story')){
+            echo "<div class = 'facebook-post-message col-md-12 col-sm-12'>";
             echo $curPost->story.'<br>';
+            echo "</div>";
           }
-          echo "</div>";
-          echo "<img src = '";
           if (property_exists($curPost, 'id')) {
-             $curPicture = $MCF->get($curPost->id,"fields=full_picture")->full_picture;
-             echo $curPicture;
+            echo "<img src = '";
+            $curPicture = $MCF->get($curPost->id,"fields=full_picture")->full_picture;
+            echo $curPicture;
+            echo "' class = 'col-md-12 col-sm-12'>";
           }
-          echo "' class = 'col-md-12 col-sm-12'>";
 
-          echo "<div class = 'facebook-post-time pull-right col-md-6 col-sm-6'>";
-          if(property_exists($curPost, 'created_time')){
-            echo substr($curPost->created_time, 0,10).' pukul '.substr($curPost->created_time, 11,5).'<br>';
+          if (property_exists($curPost, 'id')) {
+            echo "<div class = 'facebook-post-like pull-left col-md-6 col-sm-6'>";
+            echo $curPost->likes->summary->total_count." likes";
+            echo "</div>";
           }
-          echo"</div>";
+          if(property_exists($curPost, 'created_time')){
+            echo "<div class = 'facebook-post-time pull-right col-md-6 col-sm-6'>";
+            echo substr($curPost->created_time, 0,10).' pukul '.substr($curPost->created_time, 11,5).'<br>';
+            echo"</div>";
+          }
           echo"</div>";
        }
     ?>
