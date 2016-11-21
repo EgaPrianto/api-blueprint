@@ -81,7 +81,8 @@ $MCF = new MyCurlFacebook();
       top: 3296px;
     }
     .twitter-follow {
-  font: bold 14px/18px Helvetica, Arial, sans-serif;
+      font: bold 14px/18px  Helvetica, Arial Black, sans-serif;
+      height: 80px;
       color: white;
       padding: 30px 50px;
       margin: 2px;
@@ -93,7 +94,8 @@ $MCF = new MyCurlFacebook();
       text-decoration: none;
     }
     .facebook-like {
-      font-family: 'Arial Black';
+      font: bold 14px/18px  Arial Black;
+      height: 80px;
       color: white;
       padding: 30px 50px;
       margin: 2px;
@@ -176,7 +178,7 @@ $MCF = new MyCurlFacebook();
 </head>
 
 <body>
-  <div class="header-div col-md-12">
+  <div class="header-div col-md-12 col-sm-12">
     <div class="profileandlikes-div">
       <img src="
 <?php 
@@ -202,7 +204,7 @@ $MCF = new MyCurlFacebook();
       ?>
 
         Likes 
-        <img src="assets/picture/like_icon.png" style="height: 25px">
+        <img src="assets/picture/like_icon.png" style="height: 25px;  margin-bottom: 11px;">
       </a> 
     </div>
     <h1 class="profilename-div">
@@ -231,11 +233,11 @@ $MCF = new MyCurlFacebook();
           echo "<div class = 'facebook-post col-md-11 col-sm-11 pull-right'>";
           if(property_exists($curPost, 'message')){
             echo "<div class = 'facebook-post-message col-md-12 col-sm-12'>";
-            echo $curPost->message.'<br>';
+            echo utf8_encode ( $curPost->message).'<br>';
             echo "</div>";
           }else if(property_exists($curPost, 'story')){
             echo "<div class = 'facebook-post-message col-md-12 col-sm-12'>";
-            echo $curPost->story.'<br>';
+            echo utf8_encode ( $curPost->story).'<br>';
             echo "</div>";
           }
           if (property_exists($curPost, 'id')) {
