@@ -1,13 +1,12 @@
 <?php
 include 'MyCurlFacebook.php';
 
-$MCF = new MyCurlFacebook('189062984870016|7MBHU8Zl7IIEaahMbN-VZZxNrpM');
-
-echo $MCF->get("1597591840496775","fields=id,name").'<br>';
+$MCF = new MyCurlFacebook();
 echo $MCF->get("1597591840496775/likes","fields=id,name&amp;limit=1").'<br>Likes<br>';
 echo $MCF->get("1597591840496775","fields=fan_count").'<br>';
 echo $MCF->get("1597591840496775/events","fields=id,name&amp;limit=2").'<br>events<br>';
 echo $MCF->get("/1597591840496775/feed",null).'<br>events<br>';
+echo $MCF->get("1597591840496775","fields=id,name")->id;
 
 /**
  * Generate some requests and then send them in a batch request.
