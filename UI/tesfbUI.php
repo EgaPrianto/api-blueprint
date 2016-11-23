@@ -136,6 +136,9 @@ $MCF = new MyCurlFacebook();
       padding:2%;
       background-color: white;
     }
+    .facebook-post:hover{
+      background-color: rgb(217, 230, 255);
+    }
     .twitter-post{
       margin-right: 2.5%;
       background-color: white;
