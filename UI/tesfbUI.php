@@ -312,7 +312,7 @@ $MCF = new MyCurlFacebook();
     <h2 id="twitter-banner">twitter</h2>
     <div class = "twitter-post col-md-11 col-sm-11">
       <div class="row wrapper-twitter-link">
-        <a class="twitter-timeline" data-width="400" data-dnt="true" data-theme="dark" data-link-color="#2B7BB9" href="https://twitter.com/Maghfirare">
+        <a class="twitter-timeline" data-width="100%" data-dnt="true" data-theme="dark" data-link-color="#2B7BB9" href="https://twitter.com/Maghfirare">
           Tweets by Maghfirare
         </a>
       </div>
