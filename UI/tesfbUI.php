@@ -1,5 +1,5 @@
 <?php
-include 'MyCurlFacebook.php';
+include '../Facebook/MyCurlFacebook.php';
 $MCF = new MyCurlFacebook();
 ?>
 <!DOCTYPE html>
@@ -8,23 +8,7 @@ $MCF = new MyCurlFacebook();
 <head>
   <meta charset="utf-8">
   <title>LBW-dapet-A</title>
-  <!--meta name="generator" content="Google Web Designer 1.6.4.1010"-->
-  <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-  <!--style type="text/css" id="gwd-text-style">
-    p {
-      margin: 0px;
-    }
-    h1 {
-      margin: 0px;
-    }
-    h2 {
-      margin: 0px;
-    }
-    h3 {
-      margin: 0px;
-    }
-  </style-->
   <style type="text/css">
     a {
       color: inherit;
@@ -206,14 +190,9 @@ $MCF = new MyCurlFacebook();
           include ("../TWITTER/functions.php");
           include ("../TWITTER/auth.php") ;
 
-          // echo "Hello Follower Result ! <br/>";
           $url = "https://api.twitter.com/1.1/followers/ids.json";
-          // $url .='?'.$usedParam.'='.$valueParam;
           $usedParam = "screen_name";
           $valueParam = "maghfirare";
-          // echo "URL : $url <br/>";
-          // echo "Used Param : $usedParam <br/>";
-          // echo "Value : $valueParam <br/>";
          ?>
 
            <?php
@@ -225,27 +204,13 @@ $MCF = new MyCurlFacebook();
              'oauth_token' => $oauth_access_token,
              'oauth_timestamp' => time(),
              'oauth_version' => '1.0');
-            //  console_log($oauth);
            $composite_key = rawurlencode($consumer_secret) . '&' . rawurlencode($oauth_access_token_secret);
 
              $base_info = buildBaseString($url, 'GET', $oauth);
-            //  console_log("Base Info: ");
-            //  console_log($base_info);
              $oauth_signature = base64_encode(hash_hmac('sha1', $base_info, $composite_key, true));
-            //  console_log("Oauth Signature: ");
-            //  console_log($oauth_signature);
              $oauth['oauth_signature'] = $oauth_signature;
-            //  console_log("Oauth: ");
-            //  console_log($oauth);
 
              $header = array(buildAuthorizationHeader($oauth), 'Expect:');
-            //  console_log($header);
-            // console_log("Header: ");
-            // console_log($header);
-            //  $additionalHeader = array(
-            //    $usedParam => $valueParam
-            //  );
-            // echo 'URL Passed: '.$url.'?'.$usedParam.'='.$valueParam .'<br/><br/>';
              $options = array( CURLOPT_HTTPHEADER => $header,
                                CURLOPT_HEADER => false,
                                CURLOPT_URL => $url.'?'.$usedParam.'='.$valueParam,
@@ -258,8 +223,6 @@ $MCF = new MyCurlFacebook();
              curl_close($feed);
 
              $twitter_data = json_decode($json);
-            //  console_log("DATA : ");
-            //  console_log($json);
             $followerCount = count($twitter_data->ids);
             if($followerCount < 1000){
                 echo $followerCount." Followers";
@@ -270,12 +233,6 @@ $MCF = new MyCurlFacebook();
             else{
                 echo sprintf("%d M Followers", $followerCount/1000000);
             }
-            //  echo "Data : <br/>";
-            //  foreach ($twitter_data->ids as $key => $value) {
-            //    # code...
-            //    echo "$key : $value, <br/>";
-            //  }
-
             ?>
 
         <!-- END OF IMPORTED FILE -->
