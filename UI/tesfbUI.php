@@ -28,7 +28,7 @@ $MCF = new MyCurlFacebook();
           include ("../TWITTER/functions.php");
           include ("../TWITTER/auth.php") ;
 
-          $url = "https://api.twitter.com/1.1/followers/ids.json";
+          $url = "https://api.twitter.com/1.1/users/show.json";
           $usedParam = "screen_name";
           $valueParam = "maghfirare";
          ?>
@@ -60,9 +60,12 @@ $MCF = new MyCurlFacebook();
              curl_close($feed);
 
              $twitter_data = json_decode($json);
-            $followerCount = count($twitter_data->ids);
+            //  $followerCount = $twitter_data->followers_count;
+            // console_log($twitter_data->followers_count);
+            $followerCount = $twitter_data->followers_count;
             if($followerCount < 1000){
-                echo $followerCount." Followers";
+                // echo $followerCount." Followers";
+                echo $followerCount. " Followers";
             }
             else if($followerCount >= 1000 && $followerCount < 1000000){
                 echo sprintf("%d K Followers", $followerCount/1000);
