@@ -42,7 +42,6 @@ $MCF = new MyCurlFacebook();
              'oauth_token' => $oauth_access_token,
              'oauth_timestamp' => time(),
              'oauth_version' => '1.0');
-           $composite_key = rawurlencode($consumer_secret) . '&' . rawurlencode($oauth_access_token_secret);
 
              $base_info = buildBaseString($url, 'GET', $oauth);
              $oauth_signature = base64_encode(hash_hmac('sha1', $base_info, $composite_key, true));
@@ -97,7 +96,9 @@ $MCF = new MyCurlFacebook();
     </div>
     <h1 class="profilename-div">
 
-     Adelia Maghfirare
+    <?php
+      echo $MCF->get("1597591840496775","")->name;
+    ?>
 
     </h1>
     <a class="tagppl-div">
