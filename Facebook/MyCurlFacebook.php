@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 
 class MyCurlFacebook {
@@ -12,7 +12,7 @@ class MyCurlFacebook {
 
     public function __construct(){
         $this->curl = curl_init();
-        $execQuery = 'https://graph.facebook.com/v2.8/oauth/access_token?client_id={client_id}&client_secret={client_secret}&grant_type=client_credentials';
+        $execQuery = 'https://graph.facebook.com/v2.8/oauth/access_token?client_id=189062984870016&client_secret=46aa26be20511e7e76179da35790b2fe&grant_type=client_credentials';
         curl_setopt($this->curl, CURLOPT_URL, $execQuery);
         curl_setopt($this->curl, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($this->curl, CURLOPT_RETURNTRANSFER, true);
@@ -44,7 +44,7 @@ class MyCurlFacebook {
     }
 }
 /*
-require_once __DIR__ . '/vendor/autoload.php';  
+require_once __DIR__ . '/vendor/autoload.php';
 if(!session_id()) {
     session_start();
 }
