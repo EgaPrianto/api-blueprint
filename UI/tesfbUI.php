@@ -143,7 +143,7 @@ $MCF = new MyCurlFacebook();
             echo "' class = 'col-md-12 col-sm-12'>";
           }
 
-          if (property_exists($curPost, 'id')) {
+          if (property_exists($curPost, 'likes')) {
             echo "<div class = 'facebook-post-like pull-left col-md-6 col-sm-6'>";
             echo $curPost->likes->summary->total_count." likes";
             echo "</div>";
