@@ -17,7 +17,7 @@ $MCF = new MyCurlFacebook();
     <div class="profileandlikes-div">
       <img src="
 <?php
-        echo $MCF->generateURL("1597591840496775/picture","width=100");
+        echo $MCF->generateURL("1597591840496775/picture","width=100&height=100");
       ?>" class="pp-div">
       <a class="twitter-follow">
         <!-- CALC FOLLOWER HERE -->
