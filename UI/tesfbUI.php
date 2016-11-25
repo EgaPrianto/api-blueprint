@@ -42,24 +42,43 @@ $MCF = new MyCurlFacebook();
              'oauth_token' => $oauth_access_token,
              'oauth_timestamp' => time(),
              'oauth_version' => '1.0');
+          console_log("\$oauth: ");
+          console_log($oauth);
 
              $base_info = buildBaseString($url, 'GET', $oauth);
+             console_log("\$base_info: ");
+             console_log($base_info);
              $oauth_signature = base64_encode(hash_hmac('sha1', $base_info, $composite_key, true));
+             console_log("\$oauth_signature: ");
+             console_log($oauth_signature);
              $oauth['oauth_signature'] = $oauth_signature;
+             console_log("\$oauth + oauth_signature: ");
+             console_log($oauth);
 
+             console_log("buildAuthorizationHeader(\$oauth): ");
+             console_log(buildAuthorizationHeader($oauth));
              $header = array(buildAuthorizationHeader($oauth), 'Expect:');
+             console_log("\$header: ");
+             console_log($header);
              $options = array( CURLOPT_HTTPHEADER => $header,
                                CURLOPT_HEADER => false,
                                CURLOPT_URL => $url.'?'.$usedParam.'='.$valueParam,
                                CURLOPT_RETURNTRANSFER => true,
                                CURLOPT_SSL_VERIFYPEER => false);
-
+             console_log("\$option: ");
+             console_log(($options));
              $feed = curl_init();
+             console_log("\$feed: ");
+             console_log($feed);
              curl_setopt_array($feed, $options);
              $json = curl_exec($feed);
+             console_log("\$json: ");
+             console_log($json);
              curl_close($feed);
 
              $twitter_data = json_decode($json);
+             console_log("\$twitter_data: ");
+             console_log($twitter_data);
             //  $followerCount = $twitter_data->followers_count;
             // console_log($twitter_data->followers_count);
             $followerCount = $twitter_data->followers_count;
