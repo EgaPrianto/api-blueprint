@@ -10,6 +10,7 @@ Dalam proyek tugas ini kami mengintegrasikan Facebook dan Twitter API sehingga p
 * **Ega Prianto**
 * **Mohamad Fahrizal S.**
 * **LUL**
+* **LOL**
 
 ## Prerequisite
 *MUST PROVIDE FILE auth.php for twitter. 
