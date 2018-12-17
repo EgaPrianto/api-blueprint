@@ -1,4 +1,4 @@
-# Tugas Integrasi Facebook dan Twitter API
+sugoi# Tugas Integrasi Facebook dan Twitter API
 
 Dalam proyek tugas ini kami mengintegrasikan Facebook dan Twitter API sehingga pada halaman web yang kami buat, dapat menampilkan feed dan post dari Facebook dan juga tweet dari Twitter.
 
